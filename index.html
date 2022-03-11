@@ -27,8 +27,8 @@
 					<img :src=" 'img/' + thumb.img" :alt="thumb.title">
 				</div>
 
-				<button class="btn-control btn-previus">&and;</button>
-				<button class="btn-control btn-next">&or;</button>
+				<button v-on:click="changeImageDown()" class="btn-control btn-previus">&and;</button>
+				<button v-on:click="changeImageUp()" class="btn-control btn-next">&or;</button>
 			</div>
 		</div>
 	</div>
