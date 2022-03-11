@@ -28,7 +28,10 @@ const app = new Vue({
 				img:'05.jpg',
 				text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum.',
 			},
-		]
+		],
+
+        classThumb: 'thumb',
+        create: null,
 	},
     methods: {
         changeImageUp() {
@@ -49,10 +52,35 @@ const app = new Vue({
             }
         },
         change(i) {
-            this.indexCards = i
-        }
-     
-    }
+            this.indexCards = i;
+        },
+
+        interval () {
+            
+            this.create = setInterval(() => {
+                if (this.indexCards < this.arrSlides.length - 1) {
+                    this.indexCards++
+                    console.log(this.indexCards);
+                } else {
+                    this.indexCards = 0;
+    
+                }
+            }, 2000)
+        },
+        mouseover() {
+            clearInterval(this.create);
+
+        },
+        mouseleave() {
+            this.interval();
+
+        },   
+
+    },
+    created () {
+        this.interval();
+
+    },
 });
 
 
@@ -65,8 +93,6 @@ const app = new Vue({
 Descrizione:
 
 Bonus:
-
-1- al click su una thumb, visualizzare in grande l'immagine corrispondente
 
 2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
 

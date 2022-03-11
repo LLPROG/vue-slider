@@ -23,7 +23,7 @@
 
 
 			<div class="thumbs">
-				<div v-for="thumb, i in arrSlides" v-on:click="change(i)" class="thumb">
+				<div v-for="thumb, i in arrSlides" v-on:click="change(i)" :class= "classThumb" @mouseover="mouseover()" @mouseleave="mouseleave()">
 					<img :src=" 'img/' + thumb.img" :alt="thumb.title">
 				</div>
 
