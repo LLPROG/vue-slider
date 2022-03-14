@@ -30,7 +30,6 @@ const app = new Vue({
 			},
 		],
 
-        classThumb: 'thumb',
         create: null,
 	},
     methods: {
@@ -54,13 +53,11 @@ const app = new Vue({
         change(i) {
             this.indexCards = i;
         },
-
         interval () {
             
             this.create = setInterval(() => {
                 if (this.indexCards < this.arrSlides.length - 1) {
                     this.indexCards++
-                    console.log(this.indexCards);
                 } else {
                     this.indexCards = 0;
     
@@ -69,17 +66,13 @@ const app = new Vue({
         },
         mouseover() {
             clearInterval(this.create);
-
         },
-        mouseleave() {
+        mouseout() {
             this.interval();
-
         },   
-
     },
     created () {
         this.interval();
-
     },
 });
 
@@ -101,6 +94,5 @@ Bonus:
 Consiglio del giorno:
 - regola d'oro: riciclare ovunque possibile! E il riciclo spesso va a braccetto con le funzioni! Sapendole sfruttare bene, l'esercizio si riduce a poche righe ;)
 Buon lavoro e buon divertimento!
-
 
 */
